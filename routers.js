@@ -27,8 +27,8 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const payload = {
-      title: req.body.title,
-      contents: req.body.contents
+      name: req.body.name,
+      budget: req.body.budget
     };
     const [id] = await db('accounts').insert(payload);
     res.json(
@@ -44,8 +44,8 @@ router.post('/', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const payload = {
-      title: req.body.title,
-      contents: req.body.contents
+      name: req.body.name,
+      budget: req.body.budget
     };
     await db('accounts')
       .where('id', req.params.id)
